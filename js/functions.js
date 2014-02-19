@@ -1,19 +1,11 @@
-var addTodo = function(input, mode){
+var addTodo = function(){
 	// Get input
-	//var input = document.getElementById("input");
-	var input = input;
-	
-	if(mode == "active"){
-		input = input.value();
-	}
-	else{
-		input = input;
-	}
+	var input = document.getElementById("input");
 	
 	// Find table
 	var table = document.getElementById("todoList");
 	
-	if(input.length < 1){
+	if(input.value.length < 1){
 		console.log("Input is empty...");
 	}else{
 		// Create new row
@@ -60,5 +52,3 @@ var checkRows = function(){
 		notSpan.innerHTML = "";
 	}
 }
-
-addTodo("Hello");
