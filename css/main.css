@@ -1,47 +1,92 @@
+@keyframes changeOpacity {
+	0%   {opacity:0.0;}
+	100% {opacity:0.0.85;}
+}
+
+@-webkit-keyframes changeOpacity /* Safari and Chrome */ {
+	0%   {opacity:0.0;}
+	100% {opacity:0.0.85;}
+}
+
 body{
 	font-size: 15px;
+	font-family: Helvetica, sans-serif;
+	background: url("http://lorempixel.com/g/1920/1080/");
+}
+
+h1{
+	font-size: 25px;
+}
+
+main span{
+	text-align: center;
+	display: block;
+	padding: 5px;
+	color: black;
+	font-style: normal;
+}
+
+span{
+	text-align: center;
+	display: block;
+	padding: 5px;
+	font-style: italic;
+	color: #2142C4;
 }
 
 main{
 	display: table;
 	margin: auto;
-	background-color: orange;
-	padding: 20px;
-	border-radius: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 25px;
+	
+	background-color: white;
+	opacity: 0.85;
+	color: black;
 }
 
 .table{
 	width: 400px;
 	border-collapse:separate; 
-	border-spacing:5px;
+	border-spacing:2px 5px;
 }
 
 .checkBoxCell{
 	width: 30px;
 	padding: 5px;
 	position: relative;
-	background-color: grey;
-	border-radius: 0 10px 10px 0;
+	background-color: #616161;
 }
 
 .itemCell{
 	width: 370px;
 	padding: 5px;
-	background-color: grey;
-	border-radius: 10px 0 0 10px;
+	background-color: #616161;
 	padding-left: 10px;
 	height: 25px;
+	animation:changeOpacity 0.5s;
+	-webkit-animation:changeOpacity 0.5s; /* Safari and Chrome */
 }
 
 .checkBox{
-	background-color: white;
+	background-color: #616161;
 	border: none;
 	width: 30px;
+	border-radius: 5px;
+}
+
+.checkBox:hover{
+	color: white;
 }
 
 #submit{
-	background-color: white;
+	background-color: #616161;
 	border: none;
+}
+
+#submit:hover{
+	color: white;
 }
 
 #input{

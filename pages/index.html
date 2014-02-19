@@ -10,6 +10,9 @@
 <body>
 
 <main>
+	
+	<h1>To-Do List</h1>
+
 	<table class="table" id="todoList" row-spacing="10px;">
 		<span id="notification"></span>
 		<tr>
@@ -17,7 +20,7 @@
 			<td class="checkBoxCell"><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
 		</tr>
 		<tr>
-			<td class="itemCell">Finish website</td>
+			<td class="itemCell">Work on Javascript</td>
 			<td class="checkBoxCell"><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
 		</tr>
 		<tr>
@@ -28,11 +31,13 @@
 	
 	<table class="table" id="todoList" row-spacing="10px;">
 		<tr>
-			<td class="itemCell"><input placeholder="To-do" id="input" maxlength="50" autofocus></input></td>
+			<td class="itemCell"><input placeholder="Add to-do" id="input" maxlength="50" autofocus></input></td>
 			<td class="checkBoxCell"><input id="submit" type="submit" onclick="addTodo()" value="Add"></td>
 		</tr>
 	</table>
 </main>
+
+<!--<span>Backgrounds by Lorempixel</span>-->
 
 </body>
 </html>

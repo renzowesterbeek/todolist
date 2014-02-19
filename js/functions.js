@@ -5,23 +5,28 @@ var addTodo = function(){
 	// Find table
 	var table = document.getElementById("todoList");
 	
-	// Create new row
-	var row = table.insertRow(-1);
+	if(input.value.length < 1){
+		console.log("Input is empty...");
+	}else{
+		// Create new row
+		var row = table.insertRow(-1);
 
-	// Insert cells
-	var todoName = row.insertCell(0);
-	var checkBox = row.insertCell(1);
+		// Insert cells
+		var todoName = row.insertCell(0);
+		var checkBox = row.insertCell(1);
 
-	// Add text and id to cells
-	todoName.innerHTML = input.value;
-	todoName.id = "todoName";
-	todoName.className = "itemCell";
+		// Add text and id to cells
+		todoName.innerHTML = input.value;
+		todoName.id = "todoName";
+		todoName.className = "itemCell";
 	
-	checkBox.innerHTML = "<button class='checkBox' onclick='removeTodo(this)'>X</button>";
-	checkBox.className = "checkBoxCell";
+		checkBox.innerHTML = "<button class='checkBox' onclick='removeTodo(this)'>X</button>";
+		checkBox.className = "checkBoxCell";
 	
-	// Clears input field
-	input.value = "";
+		// Clears input field
+		input.value = "";
+		input.focus();
+	}
 	
 	checkRows();
 	
