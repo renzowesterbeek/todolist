@@ -3,30 +3,35 @@
 <head>
 	<meta charset="utf-8">
 	<title>To-Do List</title>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<script src="../js/functions.js"></script>
 </head>
 <body>
 
 <main>
-	<table id="todoList">
+	<table class="table" id="todoList" row-spacing="10px;">
+		<span id="notification"></span>
 		<tr>
-			<td>Make homework</td> <td><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
+			<td class="itemCell">Make homework</td>
+			<td class="checkBoxCell"><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
 		</tr>
 		<tr>
-			<td>Finish website</td> <td><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
+			<td class="itemCell">Finish website</td>
+			<td class="checkBoxCell"><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
 		</tr>
 		<tr>
-			<td>Learn a lot</td> <td><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
+			<td class="itemCell">Learn a lot</td>
+			<td class="checkBoxCell"><button class='checkBox' onclick='removeTodo(this)'>X</button></td>
 		</tr>
 	</table>
-
-	<input placeholder="To-do" id="input">
-	</input>
-
-
-	<input type="submit" onclick="addTodo()" value="Add">
-	</input>
+	
+	<table class="table" id="todoList" row-spacing="10px;">
+		<tr>
+			<td class="itemCell"><input placeholder="To-do" id="input" maxlength="50" autofocus></input></td>
+			<td class="checkBoxCell"><input id="submit" type="submit" onclick="addTodo()" value="Add"></td>
+		</tr>
+	</table>
 </main>
 
 </body>

@@ -1,0 +1,60 @@
+body{
+	font-size: 15px;
+}
+
+main{
+	display: table;
+	margin: auto;
+	background-color: orange;
+	padding: 20px;
+	border-radius: 20px;
+}
+
+.table{
+	width: 400px;
+	border-collapse:separate; 
+	border-spacing:5px;
+}
+
+.checkBoxCell{
+	width: 30px;
+	padding: 5px;
+	position: relative;
+	background-color: grey;
+	border-radius: 0 10px 10px 0;
+}
+
+.itemCell{
+	width: 370px;
+	padding: 5px;
+	background-color: grey;
+	border-radius: 10px 0 0 10px;
+	padding-left: 10px;
+	height: 25px;
+}
+
+.checkBox{
+	background-color: white;
+	border: none;
+	width: 30px;
+}
+
+#submit{
+	background-color: white;
+	border: none;
+}
+
+#input{
+	width: 320px;
+	-webkit-transition: all 0.30s ease-in-out;
+  	-moz-transition: all 0.30s ease-in-out;
+  	-ms-transition: all 0.30s ease-in-out;
+  	-o-transition: all 0.30s ease-in-out;
+  	outline: none;
+  	border: 1px solid #DDDDDD;
+}
+
+#input:focus {
+  	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  	border: 1px solid rgba(81, 203, 238, 1);
+}
