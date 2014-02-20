@@ -103,3 +103,25 @@ main{
   	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   	border: 1px solid rgba(81, 203, 238, 1);
 }
+
+footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #616161;
+	padding: 5px;
+}
+
+footer span{
+	text-align: left;
+	color: white;
+}
+
+footer a{
+	color: white;
+}
+
+footer a:hover{
+	color: black;
+}
