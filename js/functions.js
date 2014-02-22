@@ -1,21 +1,13 @@
-var addTodo = function(userInput, mode){
+var addTodo = function(){
 	// Get input
-	if(mode === "system"){
-		var input = userInput;
-		var inputValue = input;
-	}
-	else{
-		var input = document.getElementById("input");
-		var inputValue = input.value;
-	}
+	var input = document.getElementById("input");
 	
 	// Find table
 	var table = document.getElementById("todoList");
 	
-	if(inputValue.length < 1){
+	if(input.value.length < 1){
 		console.log("Input is empty...");
-	}
-	else{
+	}else{
 		// Create new row
 		var row = table.insertRow(-1);
 
@@ -24,7 +16,7 @@ var addTodo = function(userInput, mode){
 		var checkBox = row.insertCell(1);
 
 		// Add text and id to cells
-		todoName.innerHTML = inputValue;
+		todoName.innerHTML = input.value;
 		todoName.id = "todoName";
 		todoName.className = "itemCell";
 	
@@ -32,7 +24,7 @@ var addTodo = function(userInput, mode){
 		checkBox.className = "checkBoxCell";
 	
 		// Clears input field
-		inputValue = "";
+		input.value = "";
 		input.focus();
 	}
 	
