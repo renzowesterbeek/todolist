@@ -1,13 +1,21 @@
-var addTodo = function(){
+var addTodo = function(userInput, mode){
 	// Get input
-	var input = document.getElementById("input");
+	if(mode === "system"){
+		var input = userInput;
+		var inputValue = input;
+	}
+	else{
+		var input = document.getElementById("input");
+		var inputValue = input.value;
+	}
 	
 	// Find table
 	var table = document.getElementById("todoList");
 	
-	if(input.value.length < 1){
+	if(inputValue.length < 1){
 		console.log("Input is empty...");
-	}else{
+	}
+	else{
 		// Create new row
 		var row = table.insertRow(-1);
 
@@ -16,7 +24,7 @@ var addTodo = function(){
 		var checkBox = row.insertCell(1);
 
 		// Add text and id to cells
-		todoName.innerHTML = input.value;
+		todoName.innerHTML = inputValue;
 		todoName.id = "todoName";
 		todoName.className = "itemCell";
 	
@@ -24,38 +32,9 @@ var addTodo = function(){
 		checkBox.className = "checkBoxCell";
 	
 		// Clears input field
-		input.value = "";
+		inputValue = "";
 		input.focus();
 	}
-	
-	checkRows();
-	
-};
-
-var addTodoCode = function(value){
-	// Get input
-	var input = value;
-	
-	// Find table
-	var table = document.getElementById("todoList");
-	
-	console.log(input);
-	console.log(table);
-	
-	// Create new row
-	var row = table.insertRow(-1);
-
-	// Insert cells
-	var todoName = row.insertCell(0);
-	var checkBox = row.insertCell(1);
-
-	// Add text and id to cells
-	todoName.innerHTML = input;
-	todoName.id = "todoName";
-	todoName.className = "itemCell";
-	
-	checkBox.innerHTML = "<button class='checkBox' onclick='removeTodo(this)'>X</button>";
-	checkBox.className = "checkBoxCell";
 	
 	checkRows();
 	
