@@ -1,13 +1,7 @@
-var addTodo = function(userInput, mode){
+var addTodo = function(){
 	// Get input
-	if(mode === "system"){
-		var input = userInput;
-		var inputValue = input;
-	}
-	else{
-		var input = document.getElementById("input");
-		var inputValue = input.value;
-	}
+	var input = document.getElementById("input");
+	var inputValue = input.value;
 	
 	// Find table
 	var table = document.getElementById("todoList");
@@ -32,11 +26,12 @@ var addTodo = function(userInput, mode){
 		checkBox.className = "checkBoxCell";
 	
 		// Clears input field
-		inputValue = "";
+		input.value = "";
 		input.focus();
 	}
 	
 	checkRows();
+	saveTodo(inputValue);
 	
 };
 
@@ -47,7 +42,7 @@ var removeTodo = function(r){
 	document.getElementById("todoList").deleteRow(i);
 	
 	checkRows();
-}
+};
 
 var checkRows = function(){
 	// Get items
@@ -59,4 +54,27 @@ var checkRows = function(){
 	}else if(numberRows > 0){
 		notSpan.innerHTML = "";
 	}
+};
+
+var loadSave = function(){
+	saveCookie = document.cookie;
+	saveValue = saveCookie.split('=')[1];
+	saveArray = saveValue.split(',');
+	
+	for(i in saveArray){
+		console.log(saveArray[i]);
+	}
 }
+
+var saveTodo = function(cookieValue){
+	var expires = new Date();
+	expires.setFullYear(expires.getFullYear() + 1);
+	expireDate = expires.toGMTString();
+	
+	saveArray.push(cookieValue);
+	
+	document.cookie = "savedTodos=" + saveArray + "; expires=" + expireDate;
+	console.log(saveArray);
+};
+
+loadSave();
