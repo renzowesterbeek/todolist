@@ -1,3 +1,6 @@
+var saveValue;
+var saveArray;
+
 var addTodo = function(){
 	// Get input
 	var input = document.getElementById("input");
@@ -58,11 +61,16 @@ var checkRows = function(){
 
 var loadSave = function(){
 	saveCookie = document.cookie;
-	saveValue = saveCookie.split('=')[1];
-	saveArray = saveValue.split(',');
+	if(saveCookie < 1){
+		saveArray = []
+	}
+	else{
+		saveValue = saveCookie.split('=')[1];
+		saveArray = saveValue.split(',');
 	
-	for(i in saveArray){
-		console.log(saveArray[i]);
+		for(i in saveArray){
+			console.log(saveArray[i]);
+		}
 	}
 }
 
