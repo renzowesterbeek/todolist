@@ -70,11 +70,11 @@ var createTodo = function(todoValue){
 	
 };
 
-var removeTodo = function(itemName){
+var removeTodo = function(r){
 	var numberRows = document.getElementById("todoList").rows.length;
 
-	var itemIndex = itemName.parentNode.parentNode.rowIndex;
-	document.getElementById("todoList").deleteRow(itemIndex);
+	var i = r.parentNode.parentNode.rowIndex;
+	document.getElementById("todoList").deleteRow(i);
 	
 	checkRows();
 };
@@ -93,7 +93,7 @@ var checkRows = function(){
 
 var loadSave = function(){
 	saveCookie = document.cookie;
-	if(saveCookie == 0){
+	if(saveCookie < 1){
 		saveArray = []
 	}
 	else{
@@ -117,7 +117,6 @@ var saveTodo = function(cookieValue){
 	console.log(saveArray);
 };
 
-// Loads todos from cookies
 document.onreadystatechange = function () {
   if (document.readyState == "complete") {
     loadSave();
