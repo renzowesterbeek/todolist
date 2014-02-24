@@ -35,6 +35,37 @@ var addTodo = function(){
 
 };
 
+var createTodo = function(cookieValue){
+	// Get input
+	var input = cookieValue;
+	var inputValue = cookieValue;
+
+	// Find table
+	var table = document.getElementById("todoList");
+
+	if(inputValue.length < 1){
+		console.log("Input is empty...");
+	}
+	else{
+		// Create new row
+		var row = table.insertRow(-1);
+
+		// Insert cells
+		var todoName = row.insertCell(0);
+		var checkBox = row.insertCell(1);
+
+		// Add text and id to cells
+		todoName.innerHTML = inputValue;
+		todoName.id = "todoName";
+		todoName.className = "itemCell";
+
+		checkBox.innerHTML = "<button class='checkBox' onclick='removeTodo(this)'>X</button>";
+		checkBox.className = "checkBoxCell";
+	}
+
+	checkRows();
+}
+
 var removeTodo = function(r){
 	var numberRows = document.getElementById("todoList").rows.length;
 
@@ -58,8 +89,17 @@ var checkRows = function(){
 
 var loadSave = function(){
 	saveCookie = document.cookie;
-	saveValue = saveCookie.split('=')[1];
-	saveArray = saveValue.split(',');
+	if(saveCookie.length < 1){
+		saveArray = [];
+	}
+	else{
+		saveValue = saveCookie.split('=')[1];
+		saveArray = saveValue.split(',');
+	
+		for(cookie in saveArray){
+			createTodo(saveArray[cookie]);
+		}
+	}
 
 	console.log("Save file loaded: " + saveArray);
 }
@@ -74,4 +114,8 @@ var saveTodo = function(cookieValue){
 	console.log("Save file updated: " + document.cookie);
 };
 
-loadSave();
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    loadSave();
+  }
+}
