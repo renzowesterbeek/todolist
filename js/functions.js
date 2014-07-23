@@ -72,6 +72,7 @@ var removeTodo = function(r){
 	var i = r.parentNode.parentNode.rowIndex;
 	document.getElementById("todoList").deleteRow(i);
 
+	deleteTodoCookie(i);
 	checkRows();
 };
 
@@ -113,6 +114,11 @@ var saveTodo = function(cookieValue){
 	document.cookie = "savedTodos=" + saveArray + "; expires=" + expireDate;
 	console.log("Save file updated: " + document.cookie);
 };
+
+var deleteTodoCookie = function(cookieValue) {
+	var cookieIndex = saveArray.indexOf(cookieValue);
+	console.log(saveArray);
+}
 
 document.onreadystatechange = function () {
   if (document.readyState == "complete") {
